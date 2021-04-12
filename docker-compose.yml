@@ -9,8 +9,8 @@ services:
         ports:
             - "2376:2376"
         volumes: 
-            - jenkins-docker-certs:/certs/client
-            - jenkins-data:/var/jenkins_home
+            - ./jenkins-docker-certs:/certs/client
+            - ./jenkins-data:/var/jenkins_home
         networks:
             - jenkins
         command: --storage-driver=overlay2
@@ -27,8 +27,8 @@ services:
             DOCKER_CERT_PATH: /certs/client
             DOCKER_TLS_VERIFY: 1 
         volumes:
-            - jenkins-docker-certs:/certs/client:ro
-            - jenkins-data:/var/jenkins_home
+            - ./jenkins-docker-certs:/certs/client:ro
+            - ./jenkins-data:/var/jenkins_home
         networks:
             - jenkins
 
